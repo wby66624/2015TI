@@ -3,7 +3,7 @@
 ..\obj\spwm.o: ..\SYSTEM\sys\sys.h
 ..\obj\spwm.o: ..\USER\stm32f10x.h
 ..\obj\spwm.o: ..\CORE\core_cm3.h
-..\obj\spwm.o: C:\Users\wby\Downloads\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\spwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\spwm.o: ..\USER\system_stm32f10x.h
 ..\obj\spwm.o: ..\USER\stm32f10x_conf.h
 ..\obj\spwm.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

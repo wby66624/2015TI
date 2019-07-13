@@ -20,9 +20,10 @@
 #define kEY_BANK 6
 
 
-#define STEPNUM 1 //数据的当前步进值
+#define STEPNUM 0.01 //数据的当前步进值
 #define STEPNUM1 0.0025 //数据的当前步进值
 #define STEPNUM2 20
+#define STEPNUM12 0.1
 typedef struct Course//定义光标
 {
 	int all_Line;//总行数
@@ -60,5 +61,6 @@ void Change_Data2(char location, int *data);
 void Change_Data(char location, int *data);
 void Change_Data1(char location, float *data);
 void Change_Data11(char location, float *data);
+void Change_Data12(char location, float *data);
 void Change_Page(char location, MenuPage *Page);
 #endif

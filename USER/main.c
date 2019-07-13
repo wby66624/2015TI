@@ -48,9 +48,9 @@ u16 kk2=119;
 float I_set=1;
  int main(void)
  {		 
-	 rrr=1600;
-	 STMFLASH_Read(FLASH_SAVE_ADDR,&kk2,1);	
-     kkint1=kk2;
+	    rrr=1600;
+	    STMFLASH_Read(FLASH_SAVE_ADDR,&kk2,1);	
+        kkint1=kk2;
 		delay_init();	    	 //延时函数初始化	 
 	 	NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 		TIM2_PWM_Init(rrr,0);
@@ -61,8 +61,8 @@ float I_set=1;
 	    Adc_Init();		  		//ADC初始化	  
 		OLED_Init();
 		KEY_Init();  
-      duty=0.69;
-	 sin_max = rrr/2+300;// 339-15// 491-12 363-9   613-15  743-18                                                  30v
+        duty=0.69;
+	    sin_max = rrr/2+300;// 339-15// 491-12 363-9   613-15  743-18                                                  30v
 //TIM4->CCR1 = 4499;
 
 	while(1)

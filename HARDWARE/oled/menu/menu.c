@@ -34,7 +34,7 @@ MenuPage Width2;
 u16 kk=119;
 float pkp=3.203;
 extern int sin_max,c,V;
-extern  float  duty;
+extern  float  duty,I_set;
 extern u16 rrr;
 extern u16 kk1;
 /**
@@ -97,9 +97,11 @@ _Menue(Servo_1, "sin_max", &firstPage,
 
 _Menue(Servo_2, "I_set", &firstPage,
 	{
-		Set_Courese(2);
-		Show_Text(2,"I_set:%f",kkint1);
-			  Change_Data3(2,&kkint1);	
+		Set_Courese(6);
+		Show_Text(2,"I_set:%f",I_set);
+		Change_Data12(2,&I_set);	
+		Show_Text(4,"Iin(A):%f",(float)(ADC_2[adc_size]-1919.5312)/kkint1);
+		Show_Text(6,"Iin:%d",ADC_2[adc_size]);
 	})
 	
 _Menue(Servo_3, "Hz", &firstPage,
@@ -398,11 +400,11 @@ _Menue(Servo_3, "Hz", &firstPage,
 			{
 				if (KeyNum == KEY_RIGHT)//如果键值是RIGHT则数据加
 				{
-					*data += STEPNUM1;//数据加
+					*data += STEPNUM;//数据加
 				}
 				if (KeyNum == kEY_LEFT)
 				{
-					*data -= STEPNUM1;
+					*data -= STEPNUM;
 				}
 			}
 		}	
@@ -418,8 +420,23 @@ _Menue(Servo_3, "Hz", &firstPage,
 				{
 					*data -= STEPNUM1;
 				}
+			
+				}	
+			}	
+				void Change_Data12(char location, float *data)
+		{
+			if ((course->page_skewing + course->set_y) == location)//判断是否选中当前行
+			{
+				if (KeyNum == KEY_RIGHT)//如果键值是RIGHT则数据加
+				{
+					*data += STEPNUM12;//数据加
+				}
+				if (KeyNum == kEY_LEFT)
+				{
+					*data -= STEPNUM12;
+				}
 			}
-		}	
+		}
 	
 //-----------------------------页面改变函数--------------------------------------------
 	void Change_Page(char location, MenuPage *Page)
